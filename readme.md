@@ -1,8 +1,7 @@
 # Dot-Files
 
 ## Installation
-
-cd ~/
+(only link what you want)
 
 ### bash
 ln -s ~/dot-vimrc/.bashrc ~/.bashrc
