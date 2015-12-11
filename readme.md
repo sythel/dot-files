@@ -1,5 +1,8 @@
 # Dot-Files
 
+### clone into home dir
+git clone https://github.com/sythel/dot-files.git ~/dot-files
+
 ## Installation
 (only link what you want)
 
