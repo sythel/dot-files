@@ -1,0 +1,68 @@
+" -----------------------------------------------------------------
+"
+"  NOTE: some settings are set up in a common rc file so that both
+"        vim and vimperator can use them. See ~/.vim_commonrc
+"
+" The mapleader has been switched from '\' to ',' anytime you see
+" <leader> that is what this refers to.
+"
+"    <leader>h       -- toggles the highlight search
+"    <leader>g       -- turns the GUI back on
+"    <leader>G       -- turns the GUI back off
+"    <leader>b       -- shows the bookmark toolbar
+"    <leader>y       -- show the tab bar
+"    <leader>u       -- turn off the tab bar
+"    <leader>s       -- toggle the status bar
+"    <leader>t       -- show a list of tabs/buffers
+"    <leader>p       -- open up the preferences pane
+"    <leader>x       -- kick ass!
+"
+" -----------------------------------------------------------------
+
+" set the mapleader key
+let mapleader = ","
+let g:mapleader = ","
+
+" tell the bell to go beep itself!
+set visualbell
+
+" -----------------------------------------------------------------
+" Searching
+" -----------------------------------------------------------------
+" find as you type
+set incsearch
+" highlight the terms
+set hlsearch
+" make searches case-insensitive
+set ignorecase
+" unless they contain upper-case letters
+set smartcase
+
+" turn off the freakin' bell
+hi Bell display: none;
+
+" show up to 10 items in the completion list
+set maxitems=10
+
+" use a different color scheme
+colorscheme zenburn
+
+" set a stupid title
+set titlestring="FDE"
+
+" smooth scroll setting
+let g:smooziee_scroll_amount="100"
+let g:smooziee_scroll_interval="150"
+
+" Scroll settings
+noremap w 10h
+noremap e 10l
+noremap J <C-f>
+noremap K <C-b>
+
+" Go to the next/previous tab
+noremap h <C-p>
+noremap l <C-n>
+
+" I tend to tap the 'd' key on my keyboard on accident
+noremap d <silent> <Nop>
