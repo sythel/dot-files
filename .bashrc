@@ -84,34 +84,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -lA'
-alias l='ls -CF'
-alias fucking='sudo'
-
 # set vim mode for bash
 set -o vi
-
-
-# BEGIN: CS712 tscript execute alias -------------------------------------
-TSCRIPT_FOLDER='/home/wsk4/code/cs712-compilers/pp1/tscript'
-TSCRIPT_BUILD_BIN="$TSCRIPT_FOLDER/build/bin"
-# tscript itself
-alias tscript='bash $TSCRIPT_BUILD_BIN/ts'
-# tscript debug execute alias
-alias tscript_db='bash $TSCRIPT_BUILD_BIN/tsdb'
-# tscript AST to HTML alias
-alias tscript_ast='bash $TSCRIPT_BUILD_BIN/ts -AST'
-# java code compile
-alias tscript_jc='bash $TSCRIPT_BUILD_BIN/jc'
-# to run the previous generated
-alias tscript_j='bash $TSCRIPT_BUILD_BIN/j'
-# to run debug on the previous generated
-alias tscript_j='bash $TSCRIPT_BUILD_BIN/jdebug'
-# END: CS712 tscript execute alias ---------------------------------------
-
-
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -122,8 +96,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f .bash_aliases ]; then
+    . .bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
