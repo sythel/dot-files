@@ -19,7 +19,5 @@ ln -s ~/dot-vimrc/.vim ~/.vim
 ln -s ~/dot-vimrc/.vimperator ~/.vimperator
 ln -s ~/dot-vimrc/.vimperatorrc ~/.vimperatorrc
 
-### create empty bundle directory
-mkdir -p ~/.vim/bundle
-
-cd ~
+### install vundle packages
+in vim ':BundleInstall'
