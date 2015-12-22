@@ -7,19 +7,28 @@ git clone https://github.com/sythel/dot-files.git ~/dot-files
 (only link what you want)
 
 ### bash
-ln -s ~/dot-vimrc/.bashrc ~/.bashrc
+ln -s ~/dot-files/.bashrc ~/.bashrc
 
 ### zsh & oh-my-zsh
-ln -s ~/dot-vimrc/.zshrc ~/.zshrc
-ln -s ~/dot-vimrc/.oh-my-zsh ~/.oh-my-zsh
+#### oh-my-zsh Install (if not already done)
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#### link
+ln -s ~/dot-files/.zshrc ~/.zshrc
+
+
+cp -R ~/dot-files/.oh-my-zsh/themes ~/.oh-my-zsh/.
 
 ### vim, vundle
-ln -s ~/dot-vimrc/.vimrc ~/.vimrc
-ln -s ~/dot-vimrc/.vim ~/.vim
+ln -s ~/dot-files/.vimrc ~/.vimrc
+
+
+ln -s ~/dot-files/.vim ~/.vim
 
 ### if you use vimperator for firefox
-ln -s ~/dot-vimrc/.vimperator ~/.vimperator
-ln -s ~/dot-vimrc/.vimperatorrc ~/.vimperatorrc
+ln -s ~/dot-files/.vimperator ~/.vimperator
+
+
+ln -s ~/dot-files/.vimperatorrc ~/.vimperatorrc
 
 ### install vundle packages
 in vim ':BundleInstall'

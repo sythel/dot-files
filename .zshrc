@@ -84,6 +84,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+# font rebuilding alias
+alias font-rebuild="fc-cache -f -v"
+
+# cd/dir aliases
+alias fucking="sudo"
+alias la="ls -la"
+alias up="../"
+
 #
 #
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs) 
