@@ -60,6 +60,7 @@ colorscheme Monokai " colorscheme
 " CURSOR LINE/COLUMN HIGHLIGHTING
 set cursorline                                  " current cursor line highlight
 highlight CursorLine cterm=NONE ctermbg=black   " current cursor highlight color>
+
 " set cursorcolumn                              " Uncomment for current column h>
 " highlight CursorColumn ctermbg=black          " Uncomment for current column h>
 

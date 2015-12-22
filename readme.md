@@ -1,5 +1,4 @@
 # Dot-Files
-
 ### clone into home dir
 git clone https://github.com/sythel/dot-files.git ~/dot-files
 
@@ -31,4 +30,9 @@ ln -s ~/dot-files/.vimperator ~/.vimperator
 ln -s ~/dot-files/.vimperatorrc ~/.vimperatorrc
 
 ### install vundle packages
-in vim ':BundleInstall'
+#### Install Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+#### Update Vundle
+vim
+':BundleInstall'
