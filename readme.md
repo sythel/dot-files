@@ -14,8 +14,11 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 #### link
 ln -s ~/dot-files/.zshrc ~/.zshrc
 
+#### if this doesn't work install the powerlevel9k oh-my-zsh theme
+cp -R ~/dot-files/.oh-my-zsh/themes/* ~/.oh-my-zsh/themes/.
 
-cp -R ~/dot-files/.oh-my-zsh/themes ~/.oh-my-zsh/.
+#### optional (font that is compatable with powerline)
+cp ~/dot-files/.fonts/* ~/.fonts/.
 
 ### vim, vundle
 ln -s ~/dot-files/.vimrc ~/.vimrc
