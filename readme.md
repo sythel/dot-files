@@ -22,6 +22,9 @@ cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/themes/.
 #### optional (font that is compatable with powerline)
 cp ~/dot-files/.fonts/* ~/.fonts/.
 
+#### reload font cache
+sudo fc-cache -f -v
+
 ### vim, vundle
 ln -s ~/dot-files/.vimrc ~/.vimrc
 
