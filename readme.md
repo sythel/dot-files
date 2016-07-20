@@ -8,8 +8,9 @@ git clone https://github.com/sythel/dot-files.git ~/dot-files
 
 ### bash
 ln -s ~/dot-vimrc/.bashrc ~/.bashrc
+ln -s ~/dot-vimrc/.bash_aliases ~/.bash_aliases
 
-### zsh & oh-my-zsh
+### zsh & oh-my-zsh (also uses .bash_aliases)
 ln -s ~/dot-vimrc/.zshrc ~/.zshrc
 ln -s ~/dot-vimrc/.oh-my-zsh ~/.oh-my-zsh
 
@@ -17,7 +18,7 @@ ln -s ~/dot-vimrc/.oh-my-zsh ~/.oh-my-zsh
 ln -s ~/dot-vimrc/.vimrc ~/.vimrc
 ln -s ~/dot-vimrc/.vim ~/.vim
 
-### if you use vimperator for firefox
+### if you use vimperator for firefox ( vimperator sucks tho )
 ln -s ~/dot-vimrc/.vimperator ~/.vimperator
 ln -s ~/dot-vimrc/.vimperatorrc ~/.vimperatorrc
 
