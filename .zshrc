@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/wsk4/.oh-my-zsh
+export ZSH=/home/sythel/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -92,6 +92,14 @@ fi
 
 
 #
+# font rebuilding alias
+alias font-rebuild="fc-cache -f -v"
+
+# cd/dir aliases
+alias fucking="sudo"
+alias la="ls -la"
+alias up="../"
+
 #
 #
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs) 

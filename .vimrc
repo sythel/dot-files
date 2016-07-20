@@ -71,27 +71,25 @@ colorscheme Monokai " colorscheme
 " " CURSOR LINE/COLUMN HIGHLIGHTING
 set cursorline                                  " current cursor line highlight
 highlight CursorLine cterm=NONE ctermbg=black   " current cursor highlight color>
-" " set cursorcolumn                              " Uncomment for current column h>
-" " highlight CursorColumn ctermbg=black          " Uncomment for current column h>
-"
-" " VIM AIRLINE
-" SETTINGS--------------------------------------------------------=
+
+" set cursorcolumn                              " Uncomment for current column h>
+" highlight CursorColumn ctermbg=black          " Uncomment for current column h>
+
+" VIM AIRLINE SETTINGS--------------------------------------------------------=
 let g:gitgutter_sign_removed_first_line = "_^" " hacky-fix
 let g:airline_theme = "ubaryd" " airline colorscheme
 " "
 " ----------------------------------------------------------------------------=
 "  "
 "  "
-"  " INDENT GUIDES
-"  SETTINGS------------------------------------------------------=
+" INDENT GUIDES SETTINGS------------------------------------------------------=
  let g:indent_guides_auto_colors = 0
  let g:indent_guides_guide_size = 1
  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=darkgrey
  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=grey
-"  "
-"  ----------------------------------------------------------------------------=
-"  "
-"  " PYTHON FILE SETTINGS
-autocmd BufEnter *.py setlocal expandtab tabstop=4 shiftwidth=4
-autocmd BufEnter *.py IndentGuidesEnable 
+"----------------------------------------------------------------------------=
 "
+" PYTHON FILE SETTINGS
+autocmd BufEnter *.py setlocal expandtab tabstop=4 shiftwidth=4
+autocmd BufEnter *.py IndentGuidesEnable
+"----------------------------------------------------------------------------=
