@@ -19,17 +19,19 @@ Plugin 'scrooloose/nerdtree'                            " NERD TREE
 Plugin 'flazz/vim-colorschemes'                         " colors
 Plugin 'skammer/vim-css-color'                          " css colors show in terminal
 Plugin 'scrooloose/syntastic'                           " syntax checking
-Plugin 'ntpeters/vim-better-whitespace'         " improved space highlighting
-Plugin 'nathanaelkane/vim-indent-guides'        " indent guides
+Plugin 'ntpeters/vim-better-whitespace'         		" improved space highlighting
+Plugin 'nathanaelkane/vim-indent-guides'        		" indent guides
 
-Plugin 'bling/vim-airline'                                      " airline
-Plugin 'ntpeters/vim-airline-colornum'          " airline current row highlight
+Plugin 'bling/vim-airline'                              " airline
+Plugin 'vim-airline/vim-airline-themes'                              " airline themes
+Plugin 'ntpeters/vim-airline-colornum'          		" airline current row highlight
 
 Plugin 'ehamberg/vim-cute-python'                       " python reserved words to symbols
 Plugin 'airblade/vim-gitgutter'                         " git changes on left
 
-Plugin 'tpope/vim-eunuch'                                       " sudowrite, mkdir, chmod, find
+Plugin 'tpope/vim-eunuch'                               " sudowrite, mkdir, chmod, find
 Plugin 'tpope/vim-surround'                             " surroundings
+Plugin 'tpope/vim-repeat'                             	" required for . repeats on tpope/vim-surround commands
 Plugin 'tpope/vim-commentary'                           " gcc, gc commands for GoComment
 Plugin 'tpope/vim-sensible'                             " gcc, gc commands for GoComment
 
@@ -44,6 +46,9 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 Plugin 'wincent/command-t'                                      " fast file/reference navigation 
+
+Plugin 'godlygeek/tabular'								" markdown syntax
+Plugin 'plasticboy/vim-markdown'
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -77,16 +82,16 @@ highlight CursorLine cterm=NONE ctermbg=black   " current cursor highlight color
 
 " VIM AIRLINE SETTINGS--------------------------------------------------------=
 let g:gitgutter_sign_removed_first_line = "_^" " hacky-fix
-let g:airline_theme = "ubaryd" " airline colorscheme
+let g:airline_theme = "murmur" " airline colorscheme
 " "
 " ----------------------------------------------------------------------------=
 "  "
 "  "
 " INDENT GUIDES SETTINGS------------------------------------------------------=
- let g:indent_guides_auto_colors = 0
- let g:indent_guides_guide_size = 1
- autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=darkgrey
- autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=grey
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=darkgrey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=grey
 "----------------------------------------------------------------------------=
 "
 " PYTHON FILE SETTINGS

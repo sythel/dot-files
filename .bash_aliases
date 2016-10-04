@@ -11,7 +11,25 @@ else
 	alias la="ls -la"
 fi
 
-alias up=".."
-alias up2="../.."
-alias up3="../../.."
-alias up4="../../../.."
+# apache
+alias a2r="sudo apache2ctl restart"
+
+# movement
+alias fucking="sudo"
+
+# multi cd up ``cd.. #``
+cdUp() {
+	cd $(printf "%.0s../" $(seq 1 $1 ));
+}
+# qsource a quicker source
+quickSource() {
+	source "$1/bin/activate"
+}
+
+alias 'cd..'=cdUp
+
+alias qsource=quickSource
+
+# font rebuilding alias
+alias font-rebuild="fc-cache -f -v"
+
