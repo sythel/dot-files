@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# ----------------------------------------------------------------------
+# shell print colors
+# ----------------------------------------------------------------------
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls="ls --color=auto"
@@ -12,29 +15,41 @@ else
 	alias la="ls -la"
 fi
 
-# apache
+# ----------------------------------------------------------------------
+# APACHE
+# ----------------------------------------------------------------------
 alias a2r="sudo apache2ctl restart"
 
-# movement
+# ----------------------------------------------------------------------
+# MOVEMENT
+# ----------------------------------------------------------------------
 cdUp() { cd $(printf "%.0s../" $(seq 1 $1 )); } # multi cd up ``cd.. #``
 quickSource() { source "$1/bin/activate" } # qsource a quicker source
-
 alias 'cd..'=cdUp
 alias qsource=quickSource
 alias fucking="sudo"
 
-# font rebuilding alias
+# ----------------------------------------------------------------------
+# FONTS
+# ----------------------------------------------------------------------
 alias font-rebuild="fc-cache -f -v"
 
-# docker related
-dstop() { "docker stop $(docker ps -a -q)" }
-drm() { "docker rm $(docker ps -a -q)" }
-
+# ----------------------------------------------------------------------
+# DOCKER
+# ----------------------------------------------------------------------
+dstop() { docker stop $(docker ps -a -q) }
+drm() { docker rm $(docker ps -a -q) }
+alias dp="docker ps"
+alias dstart="docker start"
+alias dscale="docker scale"
 alias drmf="dstop && drm"
 alias dcb="docker-compose build"
 alias dcu="docker-compose up"
-alias dck="docker-compose kill"
+alias dcr="docker-compose run"
 alias dcp="docker-compose ps"
+alias dcstop="docker-compose stop"
+alias dcstart="docker-compose start"
+alias dcscale="docker-compose scale"
+alias dck="docker-compose kill"
 alias dcrm="docker-compose rm"
 alias dcrmf="dck && dcrm"
-# end of file
