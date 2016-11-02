@@ -23,7 +23,7 @@ Plugin 'ntpeters/vim-better-whitespace'         		" improved space highlighting
 Plugin 'nathanaelkane/vim-indent-guides'        		" indent guides
 
 Plugin 'bling/vim-airline'                              " airline
-Plugin 'vim-airline/vim-airline-themes'                              " airline themes
+Plugin 'vim-airline/vim-airline-themes'                 " airline themes
 Plugin 'ntpeters/vim-airline-colornum'          		" airline current row highlight
 
 Plugin 'ehamberg/vim-cute-python'                       " python reserved words to symbols
@@ -37,15 +37,16 @@ Plugin 'tpope/vim-sensible'                             " gcc, gc commands for G
 
 Plugin 'pangloss/vim-javascript'                        " js code validation
 Plugin 'Lokaltog/vim-easymotion'                        " \\b \\w etc
+Plugin 'bkad/camelcasemotion'							" camelcase word movement enhancements
 
 Plugin 'mhinz/vim-startify'                             " vim start-screen
 
-Plugin 'MarcWeber/vim-addon-mw-utils'           " following 4 for snippets/snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'           		" following 4 for snippets/snipmate
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-Plugin 'wincent/command-t'                                      " fast file/reference navigation 
+Plugin 'wincent/command-t'                              " fast file/reference navigation
 
 Plugin 'godlygeek/tabular'								" markdown syntax
 Plugin 'plasticboy/vim-markdown'
@@ -73,6 +74,9 @@ set undodir=~/.vim-undodir
 set t_Co=256        " suport 256 colors
 colorscheme Monokai " colorscheme
 
+" " CUSTOM SETTINGS -------
+map <SPACE> <leader>
+
 " " CURSOR LINE/COLUMN HIGHLIGHTING
 set cursorline                                  " current cursor line highlight
 highlight CursorLine cterm=NONE ctermbg=black   " current cursor highlight color>
@@ -98,3 +102,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=grey
 autocmd BufEnter *.py setlocal expandtab tabstop=4 shiftwidth=4
 autocmd BufEnter *.py IndentGuidesEnable
 "----------------------------------------------------------------------------=
+"
+" Enable Camelcase word navigation
+"
+call camelcasemotion#CreateMotionMappings('<leader>')

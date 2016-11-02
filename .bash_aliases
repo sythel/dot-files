@@ -45,6 +45,7 @@ alias dscale="docker scale"
 alias drmf="dstop && drm"
 alias dcb="docker-compose build"
 alias dcu="docker-compose up"
+alias dcund="docker-compose up --no-deps" #Docker-Compose Up --No-Deps (caps make acronym)
 alias dcr="docker-compose run"
 alias dcp="docker-compose ps"
 alias dcstop="docker-compose stop"
