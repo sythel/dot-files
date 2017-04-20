@@ -6,12 +6,11 @@ git clone https://github.com/sythel/dot-files.git ~/dot-files
 (only link what you want)
 
 ### bash
-ln -s ~/dot-vimrc/.bashrc ~/.bashrc
-ln -s ~/dot-vimrc/.bash_aliases ~/.bash_aliases
+ln -s ~/dot-files/.bashrc ~/.bashrc
 
-### zsh & oh-my-zsh (also uses .bash_aliases)
-ln -s ~/dot-vimrc/.zshrc ~/.zshrc
-ln -s ~/dot-vimrc/.oh-my-zsh ~/.oh-my-zsh
+### zsh & oh-my-zsh
+ln -s ~/dot-files/.zshrc ~/.zshrc
+ln -s ~/dot-files/.oh-my-zsh ~/.oh-my-zsh
 
 ### zsh & oh-my-zsh
 #### oh-my-zsh Install (if not already done)
@@ -34,9 +33,15 @@ sudo fc-cache -f -v
 ln -s ~/dot-files/.vimrc ~/.vimrc
 ln -s ~/dot-files/.vim ~/.vim
 
+<<<<<<< Updated upstream
 ### if you use vimperator for firefox ( vimperator sucks tho )
 ln -s ~/dot-vimrc/.vimperator ~/.vimperator
 ln -s ~/dot-vimrc/.vimperatorrc ~/.vimperatorrc
+=======
+### if you use vimperator for firefox
+ln -s ~/dot-files/.vimperator ~/.vimperator
+ln -s ~/dot-files/.vimperatorrc ~/.vimperatorrc
+>>>>>>> Stashed changes
 
 ### install vundle packages
 #### Install Vundle

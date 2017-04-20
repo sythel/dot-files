@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+" Hello
 
 " ----------------------------------------------------------------------------=
 " set the runtime path to include Vundle and initialize
@@ -53,28 +54,29 @@ Plugin 'plasticboy/vim-markdown'
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-"
-" " To ignore plugin indent changes, instead use:
-" "filetype plugin on
-" "
-" " Put your non-Plugin stuff after this line
-" " NORMAL VIM SETTINGS-------------------------------------------------
+" To ignore plugin indent changes, instead use:
+" filetype plugin on
+" Put your non-Plugin stuff after this line
+
+" ----------------------------------------------------------------------------=
+" NORMAL VIM SETTINGS
+" ----------------------------------------------------------------------------=
 set relativenumber
-"
-" " FORMATTING
+
+" FORMATTING
 set tabstop=4       " tab size
 set shiftwidth=4    " size of an indent
 set nowrap          " no line wrap
-"
-" " UNDO SETTINGS
+
+" UNDO SETTINGS
 set undofile " Maintain undo history
 set undodir=~/.vim-undodir
 
-" " COLOR SCHEME
+" COLOR SCHEME
 set t_Co=256        " suport 256 colors
 colorscheme Monokai " colorscheme
 
-" " CUSTOM SETTINGS -------
+" CUSTOM SETTINGS -------
 map <SPACE> <leader>
 
 " " CURSOR LINE/COLUMN HIGHLIGHTING
@@ -84,21 +86,22 @@ highlight CursorLine cterm=NONE ctermbg=black   " current cursor highlight color
 " set cursorcolumn                              " Uncomment for current column h>
 " highlight CursorColumn ctermbg=black          " Uncomment for current column h>
 
-" VIM AIRLINE SETTINGS--------------------------------------------------------=
+" ----------------------------------------------------------------------------=
+" VIM AIRLINE SETTINGS
+" ----------------------------------------------------------------------------=
 let g:gitgutter_sign_removed_first_line = "_^" " hacky-fix
 let g:airline_theme = "murmur" " airline colorscheme
 " "
 " ----------------------------------------------------------------------------=
-"  "
-"  "
-" INDENT GUIDES SETTINGS------------------------------------------------------=
+" INDENT GUIDES SETTINGS
+" ----------------------------------------------------------------------------=
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=darkgrey
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=grey
 "----------------------------------------------------------------------------=
-"
 " PYTHON FILE SETTINGS
+"----------------------------------------------------------------------------=
 autocmd BufEnter *.py setlocal expandtab tabstop=4 shiftwidth=4
 autocmd BufEnter *.py IndentGuidesEnable
 "----------------------------------------------------------------------------=
