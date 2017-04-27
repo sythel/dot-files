@@ -42,8 +42,8 @@ cp ~/dot-files/.fonts/* ~/.fonts/.
 
 #### reload font cache
 ```bash
-```
 sudo fc-cache -f -v
+```
 
 ### vim, vundle
 ```bash
