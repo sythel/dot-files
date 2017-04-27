@@ -61,8 +61,8 @@ ln -s ~/dot-files/.vimperatorrc ~/.vimperatorrc
 ### install vundle packages
 #### Install Vundle
 ```bash
-```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
 
 #### Update Vundle
 ```bash
