@@ -33,15 +33,10 @@ sudo fc-cache -f -v
 ln -s ~/dot-files/.vimrc ~/.vimrc
 ln -s ~/dot-files/.vim ~/.vim
 
-<<<<<<< Updated upstream
 ### if you use vimperator for firefox ( vimperator sucks tho )
 ln -s ~/dot-vimrc/.vimperator ~/.vimperator
 ln -s ~/dot-vimrc/.vimperatorrc ~/.vimperatorrc
-=======
-### if you use vimperator for firefox
-ln -s ~/dot-files/.vimperator ~/.vimperator
 ln -s ~/dot-files/.vimperatorrc ~/.vimperatorrc
->>>>>>> Stashed changes
 
 ### install vundle packages
 #### Install Vundle
