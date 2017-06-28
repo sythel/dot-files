@@ -13,12 +13,10 @@ ln -s ~/dot-files/.bashrc ~/.bashrc
 ```
 
 ### zsh & oh-my-zsh
+#### zsh Install (if not already done)
 ```bash
-ln -s ~/dot-files/.zshrc ~/.zshrc
-ln -s ~/dot-files/.oh-my-zsh ~/.oh-my-zsh
+sudo apt-get install zsh
 ```
-
-### zsh & oh-my-zsh
 #### oh-my-zsh Install (if not already done)
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -26,13 +24,15 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 #### link
 ```bash
 ln -s ~/dot-files/.zshrc ~/.zshrc
+ln -s ~/dot-files/.oh-my-zsh ~/.oh-my-zsh
 ```
 #### Important
 change first line in ~/.zshrc to properly source ur zshrc (replace my username of wsk4)
 
 #### if this doesn't work install the powerlevel9k oh-my-zsh theme
 ```bash
-cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/themes/.
+mkdir -p ~/.oh-my-zsh/custom/themes
+cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/.
 ```
 
 #### optional (font that is compatable with powerline)
