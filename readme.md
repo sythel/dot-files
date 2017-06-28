@@ -29,8 +29,10 @@ ln -s ~/dot-files/.oh-my-zsh ~/.oh-my-zsh
 #### Important
 change first line in ~/.zshrc to properly source ur zshrc (replace my username of wsk4)
 
-#### if this doesn't work install the powerlevel9k oh-my-zsh theme
+#### install the powerlevel9k oh-my-zsh theme
 ```bash
+git submodule init
+git submodule update
 cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/themes/.
 ```
 
