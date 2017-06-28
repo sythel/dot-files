@@ -31,8 +31,7 @@ change first line in ~/.zshrc to properly source ur zshrc (replace my username o
 
 #### if this doesn't work install the powerlevel9k oh-my-zsh theme
 ```bash
-mkdir -p ~/.oh-my-zsh/custom/themes
-cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes/.
+cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/themes/.
 ```
 
 #### optional (font that is compatable with powerline)
