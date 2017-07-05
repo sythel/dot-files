@@ -22,7 +22,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'                             " fugitive
 Plugin 'scrooloose/nerdtree'                            " NERD TREE
 Plugin 'flazz/vim-colorschemes'                         " colors
-Plugin 'ap/vim-css-color'                          " css colors show in terminal
+Plugin 'ap/vim-css-color'                          		" css colors show in terminal
 Plugin 'scrooloose/syntastic'                           " syntax checking
 Plugin 'ntpeters/vim-better-whitespace'         		" improved space highlighting
 Plugin 'nathanaelkane/vim-indent-guides'        		" indent guides
