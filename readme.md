@@ -1,7 +1,7 @@
 # Dot-Files
 ### clone into home dir
 ```bash
-git clone https://github.com/sythel/dot-files.git ~/dot-files
+git clone https://github.com/tehNYAZ/dot-files.git ~/dot-files
 ```
 
 ## Installation
