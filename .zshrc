@@ -1,10 +1,8 @@
+export DEFAULT_USER="$USER"
 # Path to your oh-my-zsh installation.
-export ZSH=/home/sythel/.oh-my-zsh
+export ZSH=/home/${DEFAULT_USER}/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 export TERM="xterm-256color"
@@ -59,64 +57,54 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
+# Custom Aliases ( first load bash_aliases )
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Custom Aliases ( first load bash_aliases )
-#
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
+# --------------------------------------------------------------------------------
+# POWER LEVEL 9k THEME
+# --------------------------------------------------------------------------------
+POWERLEVEL9K_MODE='awesome-patched'
 
-#
-# font rebuilding alias
-alias font-rebuild="fc-cache -f -v"
+# promt elements
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs vi_mode)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time context os_icon)
 
-# cd/dir aliases
-alias fucking="sudo"
-alias la="ls -la"
-alias up="../"
-
-#
-#
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs) 
-
-
+# pwd/cur path/context prompt
 POWERLEVEL9K_DIR_FOREGROUND='248'
 POWERLEVEL9K_DIR_BACKGROUND='088'
-
-# Advanced `vcs` color customization
-# POWERLEVEL9K_VCS_FOREGROUND='blue'
-# POWERLEVEL9K_VCS_DARK_FOREGROUND='black'
-POWERLEVEL9K_VCS_BACKGROUND='113'
-# # If VCS changes are detected:
-# POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='214'
-
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='113'
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='238'
 POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='220'
 POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND='white'
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DELIMITER='%F{red}..%F{black}'
+
+# git/vcs prompt
+POWERLEVEL9K_VCS_BACKGROUND='113'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='214'
+
+# virtualenv prompt
+POWERLEVEL9K_VIRTUALENV_BACKGROUND='238'
+POWERLEVEL9K_VIRTUALENV_FOREGROUND='red'
+
+# vi mode prompt
+POWERLEVEL9K_VI_INSERT_MODE_STRING="→"
+POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='green'
+POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='white'
+POWERLEVEL9K_VI_COMMAND_MODE_STRING='\UE138'
+POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='blue'
+POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='white'
+# ------------------------------------------------------------------------------
+# zsh vi mode
+# ------------------------------------------------------------------------------
+bindkey -v
+export KEYTIMEOUT=1
+# ------------------------------------------------------------------------------
+
