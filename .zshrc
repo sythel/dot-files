@@ -73,7 +73,7 @@ POWERLEVEL9K_MODE='awesome-patched'
 
 # promt elements
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs vi_mode)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time context os_icon)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv command_execution_time context os_icon)
 
 # pwd/cur path/context prompt
 POWERLEVEL9K_DIR_FOREGROUND='248'
@@ -93,6 +93,9 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='214'
 # virtualenv prompt
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='238'
 POWERLEVEL9K_VIRTUALENV_FOREGROUND='red'
+
+# command_execution_time prompt
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
 
 # vi mode prompt
 POWERLEVEL9K_VI_INSERT_MODE_STRING="→"
