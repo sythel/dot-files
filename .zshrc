@@ -2,6 +2,7 @@ export DEFAULT_USER="$USER"
 # Path to your oh-my-zsh installation.
 export ZSH=/home/${DEFAULT_USER}/.oh-my-zsh
 
+export POWERLEVEL9K_INSTALLATION_PATH=/home/${USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -69,7 +70,7 @@ fi
 # --------------------------------------------------------------------------------
 # POWER LEVEL 9k THEME
 # --------------------------------------------------------------------------------
-POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_MODE='awesome-fontconfig'
 
 # promt elements
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs vi_mode)
@@ -104,6 +105,39 @@ POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='white'
 POWERLEVEL9K_VI_COMMAND_MODE_STRING='\UE138'
 POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='blue'
 POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='white'
+
+# Display the duration the command needed to run.
+prompt_command_execution_time() {
+  set_default POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD 3
+  set_default POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION 2
+
+  # Print time in human readable format
+  # For that use `strftime` and convert
+  # the duration (float) to an seconds
+  # (integer).
+  # See http://unix.stackexchange.com/a/89748
+  local humanReadableDuration
+  if (( _P9K_COMMAND_DURATION > 3600 )); then
+    humanReadableDuration=$(TZ=GMT; strftime '%H:%M:%S' $(( int(rint(_P9K_COMMAND_DURATION)) )))
+  elif (( _P9K_COMMAND_DURATION > 60 )); then
+    humanReadableDuration=$(TZ=GMT; strftime '%M:%S' $(( int(rint(_P9K_COMMAND_DURATION)) )))
+  else
+    # If the command executed in seconds, print as float.
+    # Convert to float
+    if [[ "${POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION}" == "0" ]]; then
+      # If user does not want microseconds, then we need to convert
+      # the duration to an integer.
+      typeset -i humanReadableDuration
+    else
+      typeset -F ${POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION} humanReadableDuration
+    fi
+    humanReadableDuration=$_P9K_COMMAND_DURATION
+  fi
+
+  if (( _P9K_COMMAND_DURATION >= POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD )); then
+    "$1_prompt_segment" "$0" "$2" "red" "226" "${humanReadableDuration}" 'EXECUTION_TIME_ICON'
+  fi
+}
 # ------------------------------------------------------------------------------
 # zsh vi mode
 # ------------------------------------------------------------------------------
