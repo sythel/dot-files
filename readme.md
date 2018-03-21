@@ -10,6 +10,7 @@ git clone https://github.com/sythel/dot-files.git ~/dot-files
 ### bash
 ```bash
 ln -s ~/dot-files/.bashrc ~/.bashrc
+ln -s ~/dot-files/.bash_aliases ~/.bash_aliases
 ```
 
 ### zsh & oh-my-zsh
@@ -17,17 +18,20 @@ ln -s ~/dot-files/.bashrc ~/.bashrc
 ```bash
 sudo apt-get install zsh
 ```
+
 #### oh-my-zsh Install (if not already done)
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+
 #### link
 ```bash
 ln -s ~/dot-files/.zshrc ~/.zshrc
 ln -s ~/dot-files/.oh-my-zsh ~/.oh-my-zsh
 ```
+
 #### Important
-change first line in ~/.zshrc to properly source ur zshrc (replace my username of wsk4)
+confirm first line in ~/.zshrc properly source ur zshrc
 
 #### install the powerlevel9k oh-my-zsh theme
 ```bash
@@ -68,5 +72,5 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #### Update Vundle
 ```bash
 vim
+:PluginInstall
 ```
-':BundleInstall'
