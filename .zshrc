@@ -1,8 +1,15 @@
+# ZSH shell user
 export DEFAULT_USER=`whoami`
-# Path to your oh-my-zsh installation.
-export ZSH=/home/${DEFAULT_USER}/.oh-my-zsh
 
-export POWERLEVEL9K_INSTALLATION_PATH=/home/${DEFAULT_USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
+# Path to your oh-my-zsh installation.
+if [ -f /home/${DEFAULT_USER}/.oh-my-zsh ]; then
+	export ZSH=/home/${DEFAULT_USER}/.oh-my-zsh
+	export POWERLEVEL9K_INSTALLATION_PATH=/home/${DEFAULT_USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
+else
+	export ZSH=/net/home/cv/${DEFAULT_USER}/.oh-my-zsh
+	export POWERLEVEL9K_INSTALLATION_PATH=/net/home/cv/${DEFAULT_USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
+fi
+
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -52,10 +59,7 @@ export TERM="xterm-256color"
 plugins=(git python history-substring-search django web-search wd)
 
 # User configuration
-
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # Custom Aliases ( first load bash_aliases )
