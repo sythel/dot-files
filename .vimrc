@@ -145,13 +145,32 @@ au BufNewFile,BufRead,BufEnter *.yaml,*.yml set filetype=ansible
 autocmd BufEnter,BufRead,BufEnter *.html set filetype=html
 autocmd BufNewFile,BufRead,BufEnter *.vue set filetype=html
 "-----------------------------------------------------------------------------=
-
+"
 "-----------------------------------------------------------------------------=
-" EXPIREMENTAL SETTINGS-------------------------------------------------------=
+" EDIT/SPLIT/NEW-TAB ---------------------------------------------------------=
 "-----------------------------------------------------------------------------=
 " accessing files in cur buffer dir
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 map ,v :vsplit <C-R>=expand("%:p:h") . "/" <CR>
+"-----------------------------------------------------------------------------=
+
+"-----------------------------------------------------------------------------=
+" EXPIREMENTAL SETTINGS-------------------------------------------------------=
+"-----------------------------------------------------------------------------=
+" creating a folder if trying to save a buffer that lacks an existing
+" directory
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
 "-----------------------------------------------------------------------------=

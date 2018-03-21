@@ -2,7 +2,7 @@ export DEFAULT_USER=`whoami`
 # Path to your oh-my-zsh installation.
 export ZSH=/home/${DEFAULT_USER}/.oh-my-zsh
 
-export POWERLEVEL9K_INSTALLATION_PATH=/home/${USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
+export POWERLEVEL9K_INSTALLATION_PATH=/home/${DEFAULT_USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
