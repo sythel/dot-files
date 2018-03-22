@@ -2,7 +2,7 @@
 export DEFAULT_USER=`whoami`
 
 # Path to your oh-my-zsh installation.
-if [ -f /home/${DEFAULT_USER}/.oh-my-zsh ]; then
+if [ -d /home/${DEFAULT_USER}/.oh-my-zsh ]; then
 	export ZSH=/home/${DEFAULT_USER}/.oh-my-zsh
 	export POWERLEVEL9K_INSTALLATION_PATH=/home/${DEFAULT_USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
 else
