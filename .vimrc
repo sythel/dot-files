@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
-"
+filetype off                  " required 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -71,6 +70,8 @@ filetype plugin indent on    " required
 " NORMAL VIM SETTINGS --------------------------------------------------------=
 "-----------------------------------------------------------------------------=
 set relativenumber
+" uncomment below to override relativenumbers 0 at current line
+set number
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
