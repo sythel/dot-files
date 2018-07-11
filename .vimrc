@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
-"
+filetype off                  " required 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -72,6 +71,8 @@ filetype plugin indent on    " required
 " NORMAL VIM SETTINGS --------------------------------------------------------=
 "-----------------------------------------------------------------------------=
 set relativenumber
+" uncomment below to override relativenumbers 0 at current line
+set number
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
@@ -146,13 +147,32 @@ au BufNewFile,BufRead,BufEnter *.yaml,*.yml set filetype=ansible
 autocmd BufEnter,BufRead,BufEnter *.html set filetype=html
 autocmd BufNewFile,BufRead,BufEnter *.vue set filetype=html
 "-----------------------------------------------------------------------------=
-
+"
 "-----------------------------------------------------------------------------=
-" EXPIREMENTAL SETTINGS-------------------------------------------------------=
+" EDIT/SPLIT/NEW-TAB ---------------------------------------------------------=
 "-----------------------------------------------------------------------------=
 " accessing files in cur buffer dir
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 map ,v :vsplit <C-R>=expand("%:p:h") . "/" <CR>
+"-----------------------------------------------------------------------------=
+
+"-----------------------------------------------------------------------------=
+" EXPIREMENTAL SETTINGS-------------------------------------------------------=
+"-----------------------------------------------------------------------------=
+" creating a folder if trying to save a buffer that lacks an existing
+" directory
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
 "-----------------------------------------------------------------------------=

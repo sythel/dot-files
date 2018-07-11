@@ -6,7 +6,7 @@
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls="ls --color=auto"
-	alias la="ls -la --color=auto"
+	alias la="ls -lash --color=auto"
 	alias tree="tree -C"
 	alias grep="grep --color=auto"
 	alias fgrep="fgrep --color=auto"
