@@ -56,6 +56,7 @@ Plugin 'godlygeek/tabular'								" tab guides
 Plugin 'plasticboy/vim-markdown'						" markdown syntax
 Plugin 'ekalinin/dockerfile.vim'						" docker syntax
 Plugin 'chase/vim-ansible-yaml'							" ansible, yaml syntax
+Plugin 'davidhalter/jedi-vim'
 "-----------------------------------------------------------------------------=
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
