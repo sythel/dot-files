@@ -74,3 +74,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim
 :PluginInstall
 ```
+
+## UPDATES
+7/25/18 - added bfg-repo-cleaner as gbfg command (requires java 6 on system)
