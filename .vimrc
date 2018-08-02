@@ -81,6 +81,8 @@ set number
 set tabstop=4       " tab size
 set shiftwidth=4    " size of an indent
 set nowrap          " no line wrap
+" pretty format json command `:FormatJSON`
+com! FormatJSON %!python -m json.tool
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
