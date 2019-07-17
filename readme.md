@@ -22,6 +22,7 @@ sudo apt-get install zsh
 #### oh-my-zsh Install (if not already done)
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+mv ~/.oh-my-zsh ~/dot-files/.oh-my-zsh
 ```
 
 #### link
@@ -35,6 +36,7 @@ confirm first line in ~/.zshrc properly source ur zshrc
 
 #### install the powerlevel9k oh-my-zsh theme
 ```bash
+cd ~/dot-files
 git submodule init
 git submodule update
 cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/themes/.
@@ -42,6 +44,7 @@ cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/themes/.
 
 #### optional (font that is compatable with powerline)
 ```bash
+mkdir -p ~/.fonts
 cp ~/dot-files/.fonts/* ~/.fonts/.
 ```
 
@@ -52,15 +55,10 @@ sudo fc-cache -f -v
 
 ### vim, vundle
 ```bash
+mkdir -p ~/dot-files/.vim
+mkdir -p ~/dot-files/.vim/bundle
 ln -s ~/dot-files/.vimrc ~/.vimrc
 ln -s ~/dot-files/.vim ~/.vim
-```
-
-### if you use vimperator for firefox ( vimperator sucks tho )
-```bash
-ln -s ~/dot-vimrc/.vimperator ~/.vimperator
-ln -s ~/dot-vimrc/.vimperatorrc ~/.vimperatorrc
-ln -s ~/dot-files/.vimperatorrc ~/.vimperatorrc
 ```
 
 ### install vundle packages
