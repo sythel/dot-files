@@ -42,6 +42,11 @@ git submodule update
 cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/themes/.
 ```
 
+#### zsh-nvm plugin (optional - if not wanted remove from .zshrc)
+```bash
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+```
+
 #### optional (font that is compatable with powerline)
 ```bash
 mkdir -p ~/.fonts
