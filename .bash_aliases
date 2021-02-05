@@ -27,7 +27,6 @@ cdUp() { cd $(printf "%.0s../" $(seq 1 $1 )); } # multi cd up ``cd.. #``
 quickSource() { source "$1/bin/activate" } # qsource a quicker source
 alias 'cd..'=cdUp
 alias qsource=quickSource
-alias fucking="sudo"
 
 # ----------------------------------------------------------------------
 # FONTS
@@ -47,9 +46,9 @@ alias drmf="dstop && drm"
 # docker-compose
 alias dcb="docker-compose build"
 alias dcu="docker-compose up"
-alias dcund="docker-compose up --no-deps" # Docker-Compose Up --No-Deps
+alias dcund="docker-compose up --no-deps"
 alias dcr="docker-compose run"
-alias dcrnd="docker-compose run --no-deps" # Docker-Compose Run --No-Deps
+alias dcrnd="docker-compose run --no-deps"
 alias dcp="docker-compose ps"
 alias dcstop="docker-compose stop"
 alias dcstart="docker-compose start"
@@ -67,6 +66,25 @@ alias show_ssh="netstat -tnpa | grep 'ESTABLISHED.*sshd'"
 # TREE PRINTING
 # ----------------------------------------------------------------------
 alias stree="tree -L 2"
+
+# ----------------------------------------------------------------------
+# MAKE CODE TEMPLATE FILE IN CURRENT DIR
+# ----------------------------------------------------------------------
+mkstarter(){
+	echo "Mkstarter: make code template file: Params: $1 pwd: $PWD"
+	# if param 1 is python3 make python3 in current dir
+	case $1 in
+		python3)
+			cp ~/dot-files/starter_files/python3.py $PWD/starter.py
+			;;
+		html)
+			cp ~/dot-files/starter_files/starter.html $PWD/starter.html
+			;;
+		*)
+			echo "mkstarter: starter file for '$1' not found"
+			;;
+	esac
+}
 
 # ----------------------------------------------------------------------
 # GIT RELATED

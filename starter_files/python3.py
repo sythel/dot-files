@@ -28,8 +28,6 @@ log.addHandler(fh)
 
 
 def main():
-
-    # does this work?
     global args
 
     # Code Here
