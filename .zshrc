@@ -2,12 +2,9 @@
 export DEFAULT_USER=`whoami`
 
 # Path to your oh-my-zsh installation.
-if [ -d /home/${DEFAULT_USER}/.oh-my-zsh ]; then
-	export ZSH=/home/${DEFAULT_USER}/.oh-my-zsh
+if [ -d /home/${DEFAULT_USER}/dot-files/.oh-my-zsh ]; then
+	export ZSH=/home/${DEFAULT_USER}/dot-files/.oh-my-zsh
 	export POWERLEVEL9K_INSTALLATION_PATH=/home/${DEFAULT_USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
-else
-	export ZSH=/net/home/cv/${DEFAULT_USER}/.oh-my-zsh
-	export POWERLEVEL9K_INSTALLATION_PATH=/net/home/cv/${DEFAULT_USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
 fi
 
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
@@ -138,3 +135,22 @@ bindkey -v
 export KEYTIMEOUT=1
 # ------------------------------------------------------------------------------
 
+# ------------------------------------------------------------------------------
+# zsh history corruption fix
+# ------------------------------------------------------------------------------
+fix_zsh_history(){
+    mv ~/.zsh_history ~/.zsh_history_bad
+    strings -eS ~/.zsh_history_bad > ~/.zsh_history
+    fc -R ~/.zsh_history
+    rm ~/.zsh_history_bad
+}
+alias zsh_history_fix=fix_zsh_history
+# ------------------------------------------------------------------------------
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+# expiremental for WSL2 development forward display
+export DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0
+export LIBGL_ALWAYS_INDIRECT=1

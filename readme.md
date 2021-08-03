@@ -78,5 +78,18 @@ vim
 :PluginInstall
 ```
 
+### vim undo history
+save all undo history in one folder
+```bash
+mkdir ~/.vim-undodir
+```
+
+### vim swp storage
+save all .swp files in one folder
+```bash
+mkdir ~/.vim-swpdir
+```
+
 ## UPDATES
 7/25/18 - added bfg-repo-cleaner as gbfg command (requires java 6 on system)
+8/3/21 - undodir, swapdir

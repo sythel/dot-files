@@ -57,6 +57,11 @@ Plugin 'plasticboy/vim-markdown'						" markdown syntax
 Plugin 'ekalinin/dockerfile.vim'						" docker syntax
 Plugin 'chase/vim-ansible-yaml'							" ansible, yaml syntax
 Plugin 'davidhalter/jedi-vim'
+
+" Expiremental/New
+Plugin 'hashivim/vim-terraform'							" terraform syntax and helper methods
+Plugin 'modille/groovy.vim'                             " groovy syntax and indentation
+
 "-----------------------------------------------------------------------------=
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,7 +73,7 @@ filetype plugin indent on    " required
 " non-Plugin stuff after this line
 "
 "-----------------------------------------------------------------------------=
-" NORMAL VIM SETTINGS --------------------------------------------------------=
+" LINE DISPLAY SETTINGS ------------------------------------------------------=
 "-----------------------------------------------------------------------------=
 set relativenumber
 " uncomment below to override relativenumbers 0 at current line
@@ -76,20 +81,16 @@ set number
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
-" FORMATTING -----------------------------------------------------------------=
+" UNDO SETTINGS --------------------------------------------------------------=
 "-----------------------------------------------------------------------------=
-set tabstop=4       " tab size
-set shiftwidth=4    " size of an indent
-set nowrap          " no line wrap
-" pretty format json command `:FormatJSON`
-com! FormatJSON %!python -m json.tool
+set undodir=~/.vim-undodir
+set undofile " Maintain undo history
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
-" UNDO SETTINGS --------------------------------------------------------------=
+" SWAP FILE SETTINGS ---------------------------------------------------------=
 "-----------------------------------------------------------------------------=
-set undofile " Maintain undo history
-set undodir=~/.vim-undodir
+set directory=~/.vim-swpdir " swp file storage dir
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
@@ -100,11 +101,22 @@ colorscheme Monokai " colorscheme
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
-" CUSTOM SETTINGS ------------------------------------------------------------=
+" MOVEMENT SETTINGS ----------------------------------------------------------=
 "-----------------------------------------------------------------------------=
 map <SPACE> <leader>
 " Enable Camelcase word navigation
 call camelcasemotion#CreateMotionMappings('<leader>')
+"-----------------------------------------------------------------------------=
+"
+"-----------------------------------------------------------------------------=
+" FORMATTING -----------------------------------------------------------------=
+"-----------------------------------------------------------------------------=
+set tabstop=4       " tab size
+set shiftwidth=4    " size of an indent
+set nowrap          " no line wrap
+set expandtab
+" pretty format json command `:FormatJSON`
+com! FormatJSON %!python -m json.tool
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
@@ -126,14 +138,16 @@ let g:airline_theme = "murmur" " airline colorscheme
 "-----------------------------------------------------------------------------=
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=darkgrey
+let g:indent_guides_enable_on_vim_startup = 1
+hi IndentGuidesOdd ctermbg=darkgrey
+hi IndentGuidesEven ctermbg=black
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
 " PYTHON FILE SETTINGS--------------------------------------------------------=
 "-----------------------------------------------------------------------------=
-autocmd BufEnter,BufRead,BufEnter *.py setlocal expandtab tabstop=4 shiftwidth=4
-autocmd BufNewFile,BufRead,BufEnter *.py IndentGuidesEnable
+"autocmd BufEnter,BufRead,BufEnter *.py setlocal expandtab tabstop=4 shiftwidth=4 " now default
+"autocmd BufNewFile,BufRead,BufEnter *.py IndentGuidesEnable " force python indents - now default
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
@@ -146,8 +160,18 @@ au BufNewFile,BufRead,BufEnter *.yaml,*.yml set filetype=ansible
 "-----------------------------------------------------------------------------=
 " HTML FILE SETTINGS----------------------------------------------------------=
 "-----------------------------------------------------------------------------=
-autocmd BufEnter,BufRead,BufEnter *.html set filetype=html
-autocmd BufNewFile,BufRead,BufEnter *.vue set filetype=html
+autocmd BufEnter,BufRead,BufEnter *.html,*.vue set filetype=html
+"-----------------------------------------------------------------------------=
+"
+"-----------------------------------------------------------------------------=
+" GROOVY FILE SETTINGS--------------------------------------------------------=
+"-----------------------------------------------------------------------------=
+augroup GroovyEdit
+    autocmd!
+    autocmd BufNewFile,BufRead,BufEnter *enkinsfile set filetype=groovy
+    "autocmd BufNewFile,BufRead,BufEnter *enkinsfile,*.groovy set tabstop=2       " tab size
+    "autocmd BufNewFile,BufRead,BufEnter *enkinsfile,*.groovy set shiftwidth=2    " size of an indent
+augroup END
 "-----------------------------------------------------------------------------=
 "
 "-----------------------------------------------------------------------------=
@@ -161,9 +185,6 @@ map ,v :vsplit <C-R>=expand("%:p:h") . "/" <CR>
 map ,w :w <C-R>=expand("%:p:h") . "/" <CR>
 "-----------------------------------------------------------------------------=
 
-"-----------------------------------------------------------------------------=
-" EXPIREMENTAL SETTINGS-------------------------------------------------------=
-"-----------------------------------------------------------------------------=
 " creating a folder if trying to save a buffer that lacks an existing
 " directory
 function s:MkNonExDir(file, buf)
@@ -178,4 +199,17 @@ augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+"-----------------------------------------------------------------------------=
+" EXPIREMENTAL SETTINGS-------------------------------------------------------=
+" snipmate warnings
+let g:snipMate = {'snippet_version':1}
+
+" mouse scroll for windows wsl2
+set mouse=a
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+" nerdtree toggle
+nnoremap <F4> :NERDTreeToggle<CR>
+"-----------------------------------------------------------------------------=
 "-----------------------------------------------------------------------------=
