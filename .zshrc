@@ -1,11 +1,6 @@
 # ZSH shell user
 export DEFAULT_USER=`whoami`
-
-# Path to your oh-my-zsh installation.
-if [ -d /home/${DEFAULT_USER}/dot-files/.oh-my-zsh ]; then
-	export ZSH=/home/${DEFAULT_USER}/dot-files/.oh-my-zsh
-	export POWERLEVEL9K_INSTALLATION_PATH=/home/${DEFAULT_USER}/dot-files/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
-fi
+export DOTFILES_DIR=${0:a:h}
 
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -57,6 +52,13 @@ plugins=(git python zsh-nvm history-substring-search django web-search wd)
 
 # User configuration
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+# GO path
+export PATH="$PATH:/usr/local/go/bin:/home/${DEFAULT_USER}/bin"
+
+# Path to your oh-my-zsh installation.
+export ZSH=${DOTFILES_DIR}/.oh-my-zsh
+export POWERLEVEL9K_INSTALLATION_PATH=${DOTFILES_DIR}/oh-my-zsh-themes/powerlevel9k/powerlevel9k.zsh-theme
+
 source $ZSH/oh-my-zsh.sh
 
 # Custom Aliases ( first load bash_aliases )
@@ -64,8 +66,8 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+if [ -f ${DOTFILES_DIR}/.bash_aliases ]; then
+	. ${DOTFILES_DIR}/.bash_aliases
 fi
 
 # --------------------------------------------------------------------------------
@@ -147,10 +149,9 @@ fix_zsh_history(){
 alias zsh_history_fix=fix_zsh_history
 # ------------------------------------------------------------------------------
 
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 # expiremental for WSL2 development forward display
-export DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0
-export LIBGL_ALWAYS_INDIRECT=1
+#export DISPLAY=$(ip route | awk '/^default/{print $3; exit}'):0
+#export LIBGL_ALWAYS_INDIRECT=1

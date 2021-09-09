@@ -39,7 +39,7 @@ confirm first line in ~/.zshrc properly source ur zshrc
 cd ~/dot-files
 git submodule init
 git submodule update
-cp -R ~/dot-files/oh-my-zsh-themes/* ~/.oh-my-zsh/themes/.
+cp -R ~/dot-files/oh-my-zsh-themes/* ~/dot-files/.oh-my-zsh/themes/.
 ```
 
 #### zsh-nvm plugin (optional - if not wanted remove from .zshrc)

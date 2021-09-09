@@ -10,10 +10,11 @@ import traceback
 import argparse
 import time
 import logging
+import unittest
 
 log = logging.getLogger()
 log.setLevel(logging.ERROR)  # DEBUG | INFO | WARNING | ERROR | CRITICAL
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - Line: %(lineno)d\n%(message)s')
+formatter = logging.Formatter('%(asctime)s|%(name)s|%(levelname)s|Line: %(lineno)d> %(message)s')
 sh = logging.StreamHandler()
 sh.setLevel(logging.ERROR)
 sh.setFormatter(formatter)
@@ -27,11 +28,29 @@ fh.setFormatter(formatter)
 log.addHandler(fh)
 
 
+class TestStarterClass(unittest.TestCase):
+    def setUp(self):
+        #s = StarterClass()
+        pass
+
+    def test_hello(self):
+        print('Test')
+
+
+class StarterClass:
+    def __init__(self, args=None):
+        print('Hello world! args: {}'.format(args))
+
+
 def main():
     global args
 
     # Code Here
-    print('Hello world! args: {}'.format(args))
+    s = StarterClass(args)
+
+    # run all tests
+    unittest.main()
+
 
 if __name__ == '__main__':
     try:

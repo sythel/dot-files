@@ -31,7 +31,7 @@ quickSource() {
 }
 alias 'cd..'=cdUp
 alias qsource=quickSource
-
+#
 # ----------------------------------------------------------------------
 # FONTS
 # ----------------------------------------------------------------------
@@ -40,28 +40,33 @@ alias font-rebuild="fc-cache -f -v"
 # ----------------------------------------------------------------------
 # DOCKER
 # ----------------------------------------------------------------------
-dstop(){
-    docker stop $(docker ps -a -q)
+dstop() {
+	docker stop $(docker ps -a -q)
 }
-drm(){
-    docker rm $(docker ps -a -q)
+drm() {
+	docker rm $(docker ps -a -q)
 }
-alias dp="docker ps"
-alias dstart="docker start"
-alias dscale="docker scale"
-alias drmf="dstop && drm"
-alias dcb="docker-compose build"
-alias dcu="docker-compose up"
-alias dcund="docker-compose up --no-deps"
-alias dcr="docker-compose run"
-alias dcrnd="docker-compose run --no-deps"
-alias dcp="docker-compose ps"
-alias dcstop="docker-compose stop"
-alias dcstart="docker-compose start"
-alias dcscale="docker-compose scale"
-alias dck="docker-compose kill"
-alias dcrm="docker-compose rm"
-alias dcrmf="dck && dcrm"
+
+if [ -x "$(command -v docker)" ]; then
+	# docker
+	alias dp="docker ps"
+	alias dstart="docker start"
+	alias dscale="docker scale"
+	alias drmf="dstop && drm"
+	# docker-compose
+	alias dcb="docker-compose build"
+	alias dcu="docker-compose up"
+	alias dcund="docker-compose up --no-deps"
+	alias dcr="docker-compose run"
+	alias dcrnd="docker-compose run --no-deps"
+	alias dcp="docker-compose ps"
+	alias dcstop="docker-compose stop"
+	alias dcstart="docker-compose start"
+	alias dcscale="docker-compose scale"
+	alias dck="docker-compose kill"
+	alias dcrm="docker-compose rm"
+	alias dcrmf="dck && dcrm"
+fi
 
 # ----------------------------------------------------------------------
 # CONNECTION RELATED

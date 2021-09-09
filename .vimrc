@@ -206,10 +206,10 @@ augroup END
 let g:snipMate = {'snippet_version':1}
 
 " mouse scroll for windows wsl2
-set mouse=a
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
+"set mouse=a
+"map <ScrollWheelUp> <C-Y>
+"map <ScrollWheelDown> <C-E>
+"
 " nerdtree toggle
 nnoremap <F4> :NERDTreeToggle<CR>
-"-----------------------------------------------------------------------------=
 "-----------------------------------------------------------------------------=
